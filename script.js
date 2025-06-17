@@ -1,7 +1,7 @@
 // Main JavaScript for Mamunur Rashid eShop Payment Page
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize EmailJS
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual EmailJS public key
+    emailjs.init("NTwsMTwSIEozxi3h0"); // Replace with your actual EmailJS public key
     
     // Elements
     const openPaymentFormBtn = document.getElementById('openPaymentForm');
