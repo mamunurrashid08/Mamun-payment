@@ -1,15 +1,3 @@
-// Modern 3D Enhanced JavaScript for Mamun Service
-// Loading Screen Handler
-window.addEventListener('load', function() {
-    const loadingScreen = document.getElementById('loading-screen');
-    setTimeout(() => {
-        loadingScreen.classList.add('fade-out');
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
-    }, 1000);
-});
-
 // Main JavaScript for Mamunur Rashid eShop Payment Page
 document.addEventListener('DOMContentLoaded', function() {
     // Elements
