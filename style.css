@@ -1,18 +1,18 @@
-/* Modern 3D Professional Design for Mamun Service */
+/* Modern 3D Professional Design for Mamun Service - Light Theme */
 :root {
-    /* Updated Modern Color Palette - Vibrant and Professional */
-    --primary-color: #6366f1;
-    --primary-dark: #4338ca;
-    --secondary-color: #8b5cf6;
+    /* Light Modern Color Palette - Soft and Professional */
+    --primary-color: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary-color: #6366f1;
     --accent-color: #06b6d4;
     --accent-secondary: #10b981;
     
-    /* New Beautiful Gradients */
-    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    --bg-gradient-light: linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #06b6d4 100%);
+    /* Light Beautiful Gradients */
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #e0f2fe 100%);
+    --bg-gradient-light: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #bae6fd 100%);
     --bg-gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-    --bg-gradient-dark: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    --payment-grid-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --bg-gradient-dark: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    --payment-grid-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
     
     /* Modern Payment Colors */
     --bkash-color: #e2136e;
@@ -21,12 +21,12 @@
     --upay-color: #1e40af;
     --cellfin-color: #059669;
     
-    /* Glass Morphism */
-    --glass-bg: rgba(255, 255, 255, 0.25);
-    --glass-border: rgba(255, 255, 255, 0.18);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /* Glass Morphism - Light Theme */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.1);
     
-    /* Modern Colors */
+    /* Light Modern Colors */
     --white-color: #ffffff;
     --light-color: #f8fafc;
     --gray-light: #e2e8f0;
@@ -45,21 +45,21 @@
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* Enhanced 3D Shadows */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
-    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.25);
-    --shadow-3d: 0 20px 40px rgba(102, 126, 234, 0.4);
-    --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.4);
+    /* Enhanced 3D Shadows - Light Theme */
+    --shadow-sm: 0 2px 8px rgba(59, 130, 246, 0.08);
+    --shadow-md: 0 4px 16px rgba(59, 130, 246, 0.12);
+    --shadow-lg: 0 10px 30px rgba(59, 130, 246, 0.15);
+    --shadow-xl: 0 20px 50px rgba(59, 130, 246, 0.2);
+    --shadow-3d: 0 20px 40px rgba(59, 130, 246, 0.25);
+    --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.3);
     
-    /* Payment Grid Shadows */
-    --grid-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    --grid-shadow-hover: 0 12px 35px rgba(0, 0, 0, 0.15);
+    /* Payment Grid Shadows - Light */
+    --grid-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+    --grid-shadow-hover: 0 12px 35px rgba(59, 130, 246, 0.15);
     
-    /* Neumorphism */
-    --neu-shadow-light: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
-    --neu-shadow-dark: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff;
+    /* Neumorphism - Light */
+    --neu-shadow-light: 8px 8px 16px #e2e8f0, -8px -8px 16px #ffffff;
+    --neu-shadow-dark: inset 8px 8px 16px #e2e8f0, inset -8px -8px 16px #ffffff;
     
     /* Social Media Colors */
     --whatsapp-color: #25D366;
@@ -102,7 +102,7 @@ body {
     }
 }
 
-/* Modern Loading Screen */
+/* Modern Loading Screen - Light Theme */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -133,7 +133,7 @@ body {
 .spinner-ring {
     width: 60px;
     height: 60px;
-    border: 4px solid rgba(255, 255, 255, 0.1);
+    border: 4px solid rgba(59, 130, 246, 0.1);
     border-radius: 50%;
     position: relative;
     animation: spin 1.5s linear infinite;
@@ -157,12 +157,12 @@ body {
     width: 40px;
     height: 40px;
     position: absolute;
-    border-top-color: #ffffff;
+    border-top-color: var(--primary-color);
     animation-delay: -1s;
 }
 
 .spinner-text {
-    color: var(--white-color);
+    color: var(--text-color);
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -174,7 +174,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Animated Background */
+/* Animated Background - Light Theme */
 body::before {
     content: '';
     position: fixed;
@@ -183,9 +183,9 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 60%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
     animation: float 20s ease-in-out infinite;
     z-index: -1;
 }
@@ -196,7 +196,7 @@ body::before {
     66% { transform: translateY(10px) rotate(-1deg); }
 }
 
-/* Floating 3D Particles */
+/* Floating 3D Particles - Light Theme */
 .particles-container {
     position: fixed;
     top: 0;
@@ -204,214 +204,205 @@ body::before {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
     overflow: hidden;
 }
 
 .particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.8), rgba(240, 147, 251, 0.6));
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
     border-radius: 50%;
-    animation: floatParticle 15s infinite linear;
-    box-shadow: 
-        0 0 10px rgba(102, 126, 234, 0.5),
-        0 0 20px rgba(240, 147, 251, 0.3),
-        0 0 30px rgba(102, 126, 234, 0.2);
+    animation: floatParticle 15s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
 }
 
 .particle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 10%;
     left: 10%;
     animation-delay: 0s;
-    animation-duration: 20s;
-    width: 6px;
-    height: 6px;
 }
 
 .particle:nth-child(2) {
-    left: 20%;
-    animation-delay: -5s;
-    animation-duration: 25s;
-    width: 3px;
-    height: 3px;
+    width: 60px;
+    height: 60px;
+    top: 20%;
+    right: 15%;
+    animation-delay: -2s;
 }
 
 .particle:nth-child(3) {
-    left: 30%;
-    animation-delay: -10s;
-    animation-duration: 18s;
-    width: 5px;
-    height: 5px;
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -4s;
 }
 
 .particle:nth-child(4) {
-    left: 40%;
-    animation-delay: -15s;
-    animation-duration: 22s;
-    width: 4px;
-    height: 4px;
+    width: 70px;
+    height: 70px;
+    bottom: 30%;
+    right: 10%;
+    animation-delay: -6s;
 }
 
 .particle:nth-child(5) {
-    left: 60%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 5%;
     animation-delay: -8s;
-    animation-duration: 30s;
-    width: 7px;
-    height: 7px;
 }
 
 .particle:nth-child(6) {
-    left: 70%;
-    animation-delay: -12s;
-    animation-duration: 16s;
-    width: 3px;
-    height: 3px;
+    width: 90px;
+    height: 90px;
+    top: 60%;
+    right: 5%;
+    animation-delay: -10s;
 }
 
 .particle:nth-child(7) {
-    left: 80%;
-    animation-delay: -3s;
-    animation-duration: 24s;
-    width: 5px;
-    height: 5px;
+    width: 65px;
+    height: 65px;
+    bottom: 10%;
+    left: 50%;
+    animation-delay: -12s;
 }
 
 .particle:nth-child(8) {
-    left: 90%;
-    animation-delay: -18s;
-    animation-duration: 28s;
-    width: 4px;
-    height: 4px;
+    width: 75px;
+    height: 75px;
+    top: 15%;
+    left: 60%;
+    animation-delay: -14s;
 }
 
 @keyframes floatParticle {
-    0% {
-        transform: translateY(100vh) translateX(0px) rotateZ(0deg);
-        opacity: 0;
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 0.3;
     }
-    10% {
-        opacity: 1;
+    25% { 
+        transform: translateY(-30px) translateX(20px) rotate(90deg);
+        opacity: 0.6;
     }
-    90% {
-        opacity: 1;
+    50% { 
+        transform: translateY(-15px) translateX(-15px) rotate(180deg);
+        opacity: 0.4;
     }
-    100% {
-        transform: translateY(-10vh) translateX(100px) rotateZ(360deg);
-        opacity: 0;
+    75% { 
+        transform: translateY(20px) translateX(10px) rotate(270deg);
+        opacity: 0.7;
     }
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px;
     position: relative;
     z-index: 1;
 }
 
+/* Header Section - Light Glassmorphic */
 .header {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-large);
-    padding: 50px 40px;
-    margin-bottom: 40px;
+    padding: 40px;
     text-align: center;
-    box-shadow: var(--shadow-3d);
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
-    transform: perspective(1000px) rotateX(5deg);
     transition: var(--transition);
 }
 
 .header:hover {
-    transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-xl);
 }
 
 .header::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transform: rotate(45deg);
-    transition: var(--transition);
-    opacity: 0;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.8s;
 }
 
 .header:hover::before {
-    opacity: 1;
-    animation: shimmer 2s ease-in-out;
+    left: 100%;
 }
 
 @keyframes shimmer {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 
 .logo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 25px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
     border-radius: 50%;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
-    filter: drop-shadow(0 10px 20px rgba(102, 126, 234, 0.3));
 }
 
 .logo:hover {
-    transform: scale(1.1) rotateY(360deg);
+    transform: scale(1.1) rotate(5deg);
     box-shadow: var(--shadow-lg);
 }
 
 .header h1 {
-    color: #1a202c;
-    margin-bottom: 15px;
-    font-size: 42px;
+    font-size: 2.5rem;
     font-weight: 700;
-    letter-spacing: -1px;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    color: var(--text-color);
+    margin-bottom: 10px;
     position: relative;
+    display: inline-block;
 }
 
 .header h1::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: var(--bg-gradient-light);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     border-radius: 2px;
-    box-shadow: 0 2px 10px rgba(240, 147, 251, 0.5);
+    animation: shimmer 2s ease-in-out infinite;
 }
 
 .header p {
-    color: #2d3748;
-    font-size: 18px;
+    font-size: 1.1rem;
+    color: var(--text-light);
     font-weight: 400;
-    max-width: 500px;
-    margin: 0 auto;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
 }
 
+/* Payment Section - Light Glassmorphic */
 .payment-section {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-large);
-    padding: 50px 40px;
-    margin-bottom: 40px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 30px;
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
+    transition: var(--transition);
 }
 
 .payment-section::before {
@@ -420,65 +411,55 @@ body::before {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: var(--bg-gradient-light);
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--secondary-color));
     border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
 }
 
 .payment-section h2 {
-    color: #1a202c;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 36px;
+    font-size: 2rem;
     font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
     position: relative;
-    letter-spacing: -0.5px;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    display: inline-block;
 }
 
 .payment-section h2::after {
     content: '';
-    display: block;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: var(--bg-gradient-light);
-    margin: 20px auto;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     border-radius: 2px;
-    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
 }
 
 .payment-section p {
-    text-align: center;
-    margin-bottom: 35px;
-    color: #2d3748;
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
+/* Payment Button - 3D Floating Effect */
 .payment-button {
-    display: block;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
-    padding: 18px 30px;
-    background: var(--bg-gradient);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white-color);
     border: none;
+    padding: 18px 40px;
     border-radius: var(--border-radius);
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    text-align: center;
+    box-shadow: var(--shadow-3d);
     position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 .payment-button::before {
@@ -488,23 +469,21 @@ body::before {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: var(--transition);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
 }
 
 .payment-button:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: var(--shadow-3d);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow);
 }
 
 .payment-button:hover::before {
     left: 100%;
-    animation: shine 0.6s ease-in-out;
 }
 
 .payment-button:active {
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
 }
 
 @keyframes shine {
@@ -512,33 +491,32 @@ body::before {
     100% { left: 100%; }
 }
 
+/* Secure Badge - Light Theme */
 .secure-badge {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    color: var(--text-light);
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.1);
+    gap: 8px;
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
     padding: 12px 20px;
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .secure-badge:hover {
-    background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
 .secure-badge i {
     color: var(--success-color);
-    margin-right: 8px;
-    font-size: 18px;
-    filter: drop-shadow(0 2px 4px rgba(56, 161, 105, 0.3));
+    font-size: 1rem;
+    animation: pulse 2s ease-in-out infinite;
 }
 
 /* Modern 3D Modal Styles */
@@ -549,9 +527,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
     z-index: 1000;
     overflow: auto;
     opacity: 0;
@@ -566,7 +543,6 @@ body::before {
 .modal-content {
     background: var(--glass-bg);
     backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
     border: 1px solid var(--glass-border);
     margin: 5% auto;
     padding: 40px;
@@ -574,13 +550,13 @@ body::before {
     max-width: 600px;
     box-shadow: var(--shadow-xl);
     position: relative;
-    transform: perspective(1000px) rotateX(10deg) translateY(50px);
+    transform: translateY(30px);
     transition: var(--transition);
     overflow: hidden;
 }
 
 .modal.show .modal-content {
-    transform: perspective(1000px) rotateX(0deg) translateY(0px);
+    transform: translateY(0px);
 }
 
 .modal-content::before {
@@ -590,7 +566,7 @@ body::before {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--bg-gradient-light);
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
 }
 
@@ -630,14 +606,13 @@ body::before {
 }
 
 .modal-title {
-    color: #1a202c;
+    color: var(--text-color);
     margin-bottom: 30px;
     font-size: 28px;
     font-weight: 700;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .modal-title::after {
@@ -648,17 +623,16 @@ body::before {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: var(--bg-gradient-light);
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     border-radius: 2px;
-    box-shadow: 0 3px 10px rgba(240, 147, 251, 0.4);
 }
 
-/* Modern 3D Payment Tabs */
+/* Modern 3D Payment Tabs - Light Theme */
 .payment-tabs {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg);
     backdrop-filter: blur(15px);
     border-radius: var(--border-radius);
     padding: 8px;
@@ -666,7 +640,7 @@ body::before {
     top: 0;
     z-index: 5;
     box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border);
 }
 
 .tab-item {
@@ -704,7 +678,7 @@ body::before {
 }
 
 .tab-item.active {
-    background: var(--bg-gradient);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white-color);
     font-weight: 600;
     box-shadow: var(--shadow-md);
@@ -728,14 +702,16 @@ body::before {
     display: block;
 }
 
-/* Hadith Box Styles */
+/* Hadith Box Styles - Light Theme */
 .hadith-box {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: var(--border-radius);
-    padding: 15px;
-    margin-bottom: 20px;
+    padding: 20px;
+    margin-bottom: 25px;
     text-align: center;
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
 }
 
 .hadith-title {
@@ -757,28 +733,27 @@ body::before {
 .form-group label {
     display: block;
     margin-bottom: 12px;
-    color: #1a202c !important;
+    color: var(--text-color) !important;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-    -webkit-text-fill-color: #1a202c !important;
+    -webkit-text-fill-color: var(--text-color) !important;
     background: none !important;
 }
 
 .form-group label::after {
     content: ' *';
-    color: #e53e3e !important;
-    -webkit-text-fill-color: #e53e3e !important;
+    color: var(--error-color) !important;
+    -webkit-text-fill-color: var(--error-color) !important;
 }
 
 .form-control {
     width: 100%;
     padding: 16px 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--glass-border);
     border-radius: var(--border-radius);
     font-size: 16px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
     color: var(--text-color);
     transition: var(--transition);
@@ -793,8 +768,8 @@ body::before {
 .form-control:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2), var(--shadow-md);
-    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), var(--shadow-md);
+    background: rgba(255, 255, 255, 0.8);
     transform: translateY(-2px);
 }
 
@@ -1897,8 +1872,8 @@ body::before {
 }
 
 .payment-grid-item {
-    background: var(--payment-grid-gradient);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
     border-radius: var(--border-radius);
     padding: 25px 20px;
     text-align: center;
@@ -1908,7 +1883,6 @@ body::before {
     overflow: hidden;
     box-shadow: var(--grid-shadow);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 .payment-grid-item::before {
@@ -1999,7 +1973,6 @@ body::before {
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 8px;
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .payment-grid-subtitle {
@@ -2015,7 +1988,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2023,8 +1996,7 @@ body::before {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
 }
 
 .payment-method-modal.show {
@@ -2035,7 +2007,6 @@ body::before {
 .payment-method-modal-content {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-large);
     padding: 40px;
@@ -2082,7 +2053,6 @@ body::before {
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .payment-method-modal-close {
@@ -2356,4 +2326,122 @@ body::before {
         padding: 25px 15px;
         max-height: 90vh;
     }
+}
+
+/* Website Visit Section - Light Theme */
+.website-visit-section {
+    margin: 15px 0;
+    padding: 25px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.website-visit-section:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.website-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+    max-width: 250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--transition);
+    text-decoration: none;
+    box-shadow: var(--shadow-md);
+}
+
+.website-button:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.website-button:active {
+    transform: translateY(-1px);
+}
+
+.globe-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.secure-badge {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.lock-icon {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+/* Mobile responsive for website section */
+@media (max-width: 480px) {
+    .website-visit-section {
+        padding: 20px;
+        margin: 10px 0;
+    }
+    
+    .section-title {
+        font-size: 16px;
+    }
+    
+    .website-button {
+        font-size: 14px;
+        padding: 12px 25px;
+    }
+}
+
+/* Pulse animation for website button */
+@keyframes websitePulse {
+    0% { box-shadow: var(--shadow-md); }
+    50% { box-shadow: var(--shadow-lg); }
+    100% { box-shadow: var(--shadow-md); }
+}
+
+.website-button {
+    animation: websitePulse 2s infinite;
 }
