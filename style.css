@@ -356,15 +356,12 @@ body::before {
 }
 
 .header h1 {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1a202c;
     margin-bottom: 15px;
     font-size: 42px;
     font-weight: 700;
     letter-spacing: -1px;
-    text-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
     position: relative;
 }
 
@@ -382,12 +379,12 @@ body::before {
 }
 
 .header p {
-    color: var(--text-light);
+    color: #2d3748;
     font-size: 18px;
     font-weight: 400;
     max-width: 500px;
     margin: 0 auto;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .payment-section {
@@ -415,16 +412,14 @@ body::before {
 }
 
 .payment-section h2 {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1a202c;
     text-align: center;
     margin-bottom: 30px;
     font-size: 36px;
     font-weight: 700;
     position: relative;
     letter-spacing: -0.5px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .payment-section h2::after {
@@ -441,12 +436,13 @@ body::before {
 .payment-section p {
     text-align: center;
     margin-bottom: 35px;
-    color: var(--text-light);
+    color: #2d3748;
     font-size: 18px;
     line-height: 1.7;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .payment-button {
@@ -620,16 +616,14 @@ body::before {
 }
 
 .modal-title {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1a202c;
     margin-bottom: 30px;
     font-size: 28px;
     font-weight: 700;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .modal-title::after {
@@ -749,19 +743,19 @@ body::before {
 .form-group label {
     display: block;
     margin-bottom: 12px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1a202c !important;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    -webkit-text-fill-color: #1a202c !important;
+    background: none !important;
 }
 
 .form-group label::after {
     content: ' *';
-    color: var(--error-color);
-    -webkit-text-fill-color: var(--error-color);
+    color: #e53e3e !important;
+    -webkit-text-fill-color: #e53e3e !important;
 }
 
 .form-control {
@@ -1317,21 +1311,28 @@ body::before {
 /* Enhanced Modern Mobile Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 20px 15px;
+        padding: 20px 10px;
+        max-width: 100%;
     }
 
     .header {
-        padding: 40px 30px;
-        margin-bottom: 30px;
-        transform: perspective(1000px) rotateX(2deg);
+        padding: 30px 20px;
+        margin-bottom: 25px;
+        transform: none;
     }
 
     .header h1 {
-        font-size: 32px;
+        font-size: 28px;
+        color: #1a202c !important;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        -webkit-text-fill-color: #1a202c !important;
+        background: none !important;
     }
 
     .header p {
         font-size: 16px;
+        color: #2d3748 !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
     }
 
     .logo {
@@ -1340,18 +1341,24 @@ body::before {
     }
 
     .payment-section {
-        padding: 40px 30px;
-        margin-bottom: 30px;
+        padding: 25px 20px;
+        margin-bottom: 25px;
     }
 
     .payment-section h2 {
-        font-size: 28px;
-        margin-bottom: 25px;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #1a202c !important;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        -webkit-text-fill-color: #1a202c !important;
+        background: none !important;
     }
 
     .payment-section p {
         font-size: 16px;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
+        color: #2d3748 !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
     }
 
     .payment-button {
@@ -1362,19 +1369,24 @@ body::before {
 
     .modal-content {
         margin: 2% auto;
-        padding: 30px 20px;
+        padding: 20px 15px;
         max-width: 95%;
-        max-height: 95vh;
+        max-height: 90vh;
         border-radius: var(--border-radius);
+        overflow-y: auto;
     }
 
     .payment-modal-content {
-        padding: 20px 15px;
+        padding: 15px 10px;
     }
 
     .modal-title {
-        font-size: 24px;
-        margin-bottom: 25px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #1a202c !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        -webkit-text-fill-color: #1a202c !important;
+        background: none !important;
     }
 
     .payment-tabs {
@@ -1420,6 +1432,8 @@ body::before {
     .payment-option {
         padding: 15px;
         margin-bottom: 15px;
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 1px solid #e2e8f0 !important;
     }
 
     .payment-option-logo {
@@ -1428,25 +1442,36 @@ body::before {
     }
 
     .payment-option-title {
-        font-size: 14px;
+        font-size: 16px;
+        color: #1a202c !important;
+        font-weight: 600;
     }
 
     .payment-number {
-        padding: 10px;
+        padding: 12px;
+        background: rgba(240, 240, 240, 0.95) !important;
+        border: 1px solid #cbd5e0 !important;
     }
 
     .payment-number span {
-        font-size: 14px;
+        font-size: 16px;
+        color: #1a202c !important;
+        font-weight: 600;
     }
 
     .copy-number {
-        padding: 6px 12px;
-        font-size: 12px;
+        padding: 8px 14px;
+        font-size: 13px;
+        background: #4299e1 !important;
+        color: white !important;
     }
 
     .form-control {
-        padding: 14px 16px;
+        padding: 16px 18px;
         font-size: 16px;
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 2px solid #cbd5e0 !important;
+        color: #1a202c !important;
     }
 
     .success-title {
@@ -1503,44 +1528,62 @@ body::before {
 
 @media (max-width: 480px) {
     .container {
-        padding: 15px 10px;
+        padding: 10px 8px;
     }
 
     .header {
-        padding: 30px 20px;
-        margin-bottom: 25px;
+        padding: 20px 15px;
+        margin-bottom: 20px;
     }
 
     .header h1 {
-        font-size: 28px;
+        font-size: 24px;
+        color: #1a202c !important;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        -webkit-text-fill-color: #1a202c !important;
+        background: none !important;
     }
 
     .header p {
-        font-size: 15px;
+        font-size: 14px;
+        color: #2d3748 !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
     }
 
     .payment-section {
-        padding: 30px 20px;
-        margin-bottom: 25px;
+        padding: 20px 15px;
+        margin-bottom: 20px;
     }
 
     .payment-section h2 {
-        font-size: 24px;
+        font-size: 20px;
+        color: #1a202c !important;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        -webkit-text-fill-color: #1a202c !important;
+        background: none !important;
     }
 
     .modal-content {
         margin: 1% auto;
-        padding: 25px 15px;
+        padding: 15px 10px;
         max-width: 98%;
+        max-height: 85vh;
     }
 
     .modal-title {
-        font-size: 20px;
-        margin-bottom: 20px;
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #1a202c !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        -webkit-text-fill-color: #1a202c !important;
+        background: none !important;
     }
 
     .payment-option {
-        padding: 12px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: rgba(255, 255, 255, 0.98) !important;
+        border: 1px solid #e2e8f0 !important;
     }
 
     .tab-item {
@@ -1586,26 +1629,30 @@ body::before {
 
 /* Terms and Conditions Box */
 .terms-box {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
+    background-color: rgba(255, 248, 240, 0.95);
+    border: 2px solid #fed7d7;
     border-radius: var(--border-radius);
-    padding: 12px;
+    padding: 15px;
     margin: 15px 0;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .terms-box p {
     text-align: left;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    color: #2d3748 !important;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 .terms-title {
     font-weight: bold;
-    color: #ff6600;
-    margin-bottom: 8px;
+    color: #c53030 !important;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .terms-title i {
@@ -1728,38 +1775,52 @@ body::before {
 
 /* Ad Container Styles */
 .ad-container {
-    margin: 20px auto 10px;
-    padding: 10px;
-    background-color: var(--light-color);
+    margin: 15px auto 8px;
+    padding: 8px;
+    background-color: rgba(247, 250, 252, 0.95);
     border-radius: var(--border-radius);
     text-align: center;
     max-width: 320px;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    border: 1px solid #e2e8f0;
 }
 
 .ad-container-footer {
-    margin: 20px auto 15px;
-    padding: 10px;
-    background-color: var(--light-color);
+    margin: 15px auto 10px;
+    padding: 8px;
+    background-color: rgba(247, 250, 252, 0.95);
     border-radius: var(--border-radius);
     text-align: center;
     max-width: 320px;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    border: 1px solid #e2e8f0;
 }
 
 /* Success modal ad container */
 .success-ad {
-    margin: 25px auto 15px;
-    border: 1px solid #e0e0e0;
+    margin: 20px auto 10px;
+    border: 1px solid #e2e8f0;
+    background-color: rgba(247, 250, 252, 0.95);
+    padding: 8px;
+    border-radius: var(--border-radius);
 }
 
 /* Make ads responsive */
-@media (max-width: 350px) {
+@media (max-width: 480px) {
     .ad-container, .ad-container-footer, .success-ad {
         max-width: 100%;
         padding: 5px;
+        margin: 10px auto 5px;
+    }
+}
+
+@media (max-width: 350px) {
+    .ad-container, .ad-container-footer, .success-ad {
+        max-width: 100%;
+        padding: 3px;
+        margin: 8px auto 3px;
     }
 }
 
@@ -1771,4 +1832,43 @@ body::before {
     color: #666;
     text-align: center;
     margin-bottom: 5px;
+}
+
+/* Enhanced Mobile Text Readability */
+@media (max-width: 768px) {
+    .payment-option-content p {
+        color: #2d3748 !important;
+        font-weight: 500;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    }
+    
+    .app-open-button {
+        background-color: #4299e1 !important;
+        color: white !important;
+        font-weight: 600;
+        text-shadow: none;
+    }
+    
+    .payment-option-button {
+        background-color: #4299e1 !important;
+        color: white !important;
+        font-weight: 600;
+        text-shadow: none;
+    }
+    
+    .ziina-button {
+        background-color: #4299e1 !important;
+        color: white !important;
+        font-weight: 600;
+    }
+    
+    .hadith-title {
+        color: #1a202c !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    }
+    
+    .hadith-text {
+        color: #2d3748 !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    }
 }
