@@ -611,9 +611,131 @@ document.addEventListener('DOMContentLoaded', function() {
         const methodNames = {
             'send-money': 'Send-money',
             'card': 'Card',
-            'payment': 'Payment'
+            'payment': 'Payment',
+            'bkash-sendmoney': 'bKash Send Money',
+            'nagad-sendmoney': 'Nagad Send Money',
+            'upay-sendmoney': 'Upay Send Money',
+            'rocket-sendmoney': 'Rocket Send Money',
+            'cellfin-sendmoney': 'Cellfin Send Money',
+            'bkash-payment': 'bKash Payment',
+            'nagad-payment': 'Nagad Payment',
+            'manual-payment': 'Manual Payment',
+            'qr-payment': 'QR Payment'
         };
         return methodNames[method] || method;
     }
+
+    // Payment Grid Functionality
+    const paymentGridItems = document.querySelectorAll('.payment-grid-item');
+    const paymentMethodModals = document.querySelectorAll('.payment-method-modal');
+    const paymentMethodCloseButtons = document.querySelectorAll('.payment-method-modal-close');
+    const paymentCopyButtons = document.querySelectorAll('.payment-copy-btn');
+    const paymentCompleteButtons = document.querySelectorAll('.payment-method-complete-btn');
+
+    // Handle payment grid item clicks
+    paymentGridItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const paymentType = this.getAttribute('data-payment');
+            const modal = document.getElementById(paymentType + '-modal');
+            
+            if (modal) {
+                // Close main payment modal first
+                if (paymentModal) {
+                    paymentModal.classList.remove('show');
+                }
+                
+                // Show individual payment method modal
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    // Handle payment method modal close buttons
+    paymentMethodCloseButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.payment-method-modal');
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+                
+                // Show main payment modal again
+                if (paymentModal) {
+                    paymentModal.classList.add('show');
+                }
+            }
+        });
+    });
+
+    // Handle copy functionality for payment method modals
+    paymentCopyButtons.forEach(button => {
+        if (button.hasAttribute('data-number')) {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const number = this.getAttribute('data-number');
+                
+                // Create temporary input element
+                const tempInput = document.createElement('input');
+                tempInput.value = number;
+                document.body.appendChild(tempInput);
+                
+                // Select and copy
+                tempInput.select();
+                document.execCommand('copy');
+                
+                // Remove temporary element
+                document.body.removeChild(tempInput);
+                
+                // Change button text temporarily
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> কপি হয়েছে';
+                this.style.backgroundColor = 'var(--success-color)';
+                
+                // Reset button text after delay
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
+    });
+
+    // Handle payment completion for individual modals
+    paymentCompleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const method = this.getAttribute('data-method');
+            const transactionInput = document.getElementById(method + '-transaction');
+            
+            if (!transactionInput.value.trim()) {
+                transactionInput.style.borderColor = 'var(--error-color)';
+                alert('অনুগ্রহ করে ট্রানজেকশন আইডি লিখুন');
+                return;
+            }
+            
+            // Close current modal and handle payment completion
+            const modal = this.closest('.payment-method-modal');
+            if (modal) {
+                modal.classList.remove('show');
+            }
+            
+            // Call the existing payment completion handler
+            handlePaymentCompletion(method, transactionInput);
+        });
+    });
+
+    // Close payment method modals when clicking outside
+    paymentMethodModals.forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('show');
+                document.body.style.overflow = '';
+                
+                // Show main payment modal again
+                if (paymentModal) {
+                    paymentModal.classList.add('show');
+                }
+            }
+        });
+    });
 });
 
