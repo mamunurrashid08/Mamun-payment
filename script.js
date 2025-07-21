@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailShareBtn = document.getElementById('emailShare');
 
     // SMS Configuration
-    const SMS_CONFIG = {
-        api_key: "92rEDjjBTG7ZOzoUytdm",
-        sender_id: "8809617627007",
-        api_url: "https://bulksmsbd.net/api/smsapimany"
-    };
+const SMS_CONFIG = {
+    api_key: "c628f3e6ea38ae7892cebc1a4f09647a719964b1",
+    sender_id: "Mamun eSvc",
+    api_url: "https://bulksmsdhaka.com/api/sendtext"
+};
 
     // Function to send SMS using BulkSMSBD API
     async function sendSMS(customerName, phoneNumber, amount, paymentMethod, transactionId) {
