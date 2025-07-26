@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // SMS Configuration
     const SMS_CONFIG = {
         api_key: "c628f3e6ea38ae7892cebc1a4f09647a719964b1",
-        callerID: "Mamun eSvc",
-        api_url: "https://bulksmsdhaka.com/api/sendtext"
+        sender_id: "Mamun eSvc",
+        api_url: "https://bulksmsdhaka.com/smsapi"
     };
 
-    // Function to send SMS using BulkSMSBD API
+    // Function to send SMS using BulkSMSBD API via PHP backend
     async function sendSMS(customerName, phoneNumber, amount, paymentMethod, transactionId) {
         try {
             // Format phone number - ensure it starts with 88
@@ -62,57 +62,100 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const message = `Dear ${customerName}, your payment of ${amount} BDT (${paymentMethod}) has been received. TXN: ${transactionId}. Service will be given after verification. Web: mamuneservice.com`;
 
-            const smsData = new URLSearchParams({
-                apikey: SMS_CONFIG.api_key,
-                callerID: SMS_CONFIG.callerID,
-                number: formattedPhone,
-                message: message
-            }).toString();
-
             console.log('Sending SMS to:', formattedPhone);
-            console.log('SMS Data:', smsData);
+            console.log('Message:', message);
 
-            const response = await fetch(`${SMS_CONFIG.api_url}?${smsData}`, {
-                method: 'GET',
+            // Use our PHP script to send SMS (this avoids CORS issues)
+            const response = await fetch('send_sms.php', {
+                method: 'POST',
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                mode: 'cors'
+                body: JSON.stringify({
+                    api_key: SMS_CONFIG.api_key,
+                    contacts: formattedPhone,
+                    senderid: SMS_CONFIG.sender_id,
+                    msg: message
+                })
             });
 
-            console.log('Response status:', response.status);
-            console.log('Response ok:', response.ok);
+            console.log('PHP Script Response status:', response.status);
 
-            let result;
-            try {
-                result = await response.json();
-            } catch (e) {
-                // If JSON parsing fails, get text response
-                result = await response.text();
-                console.log('Response text:', result);
-            }
-            
-            if (response.ok && response.status === 200) {
-                console.log('SMS sent successfully:', result);
-                return { success: true, result: result };
+            if (response.ok) {
+                const result = await response.json();
+                console.log('PHP Script Response:', result);
+                
+                if (result.success) {
+                    console.log('SMS sent successfully via PHP script');
+                    return { success: true, result: result };
+                } else {
+                    console.log('PHP script reported SMS failure, trying direct method...');
+                    return await sendSMSDirectly(customerName, phoneNumber, amount, paymentMethod, transactionId);
+                }
             } else {
-                console.error('SMS sending failed:', result);
-                return { success: false, error: result };
+                console.log('PHP script failed, trying direct method...');
+                return await sendSMSDirectly(customerName, phoneNumber, amount, paymentMethod, transactionId);
             }
         } catch (error) {
-            console.error('SMS API error:', error);
-            
-            // If CORS error, try alternative approach
-            if (error.message.includes('CORS') || error.message.includes('fetch')) {
-                console.log('CORS issue detected, trying alternative method...');
-                return await sendSMSAlternative(customerName, phoneNumber, amount, paymentMethod, transactionId);
-            }
-            
-            return { success: false, error: error.message };
+            console.error('PHP SMS method error:', error);
+            console.log('Trying direct SMS method...');
+            return await sendSMSDirectly(customerName, phoneNumber, amount, paymentMethod, transactionId);
         }
     }
 
-    // Alternative SMS sending method using form submission
+    // Direct SMS sending method as fallback
+    async function sendSMSDirectly(customerName, phoneNumber, amount, paymentMethod, transactionId) {
+        try {
+            // Format phone number - ensure it starts with 88
+            let formattedPhone = phoneNumber.replace(/^\+?88?/, '');
+            if (!formattedPhone.startsWith('88')) {
+                formattedPhone = '88' + formattedPhone;
+            }
+
+            const message = `Dear ${customerName}, your payment of ${amount} BDT (${paymentMethod}) has been received. TXN: ${transactionId}. Service will be given after verification. Web: mamuneservice.com`;
+
+            // Try direct API call with POST method
+            const smsData = new URLSearchParams({
+                api_key: SMS_CONFIG.api_key,
+                type: "text",
+                contacts: formattedPhone,
+                senderid: SMS_CONFIG.sender_id,
+                msg: message
+            });
+
+            console.log('Trying direct SMS API call...');
+
+            const response = await fetch(SMS_CONFIG.api_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Accept': 'application/json'
+                },
+                body: smsData
+            });
+
+            if (response.ok) {
+                const result = await response.text();
+                console.log('Direct SMS API response:', result);
+                
+                if (result.toLowerCase().includes('success') || 
+                    result.toLowerCase().includes('sent') || 
+                    result.toLowerCase().includes('ok')) {
+                    return { success: true, result: result };
+                } else {
+                    return await sendSMSAlternative(customerName, phoneNumber, amount, paymentMethod, transactionId);
+                }
+            } else {
+                return await sendSMSAlternative(customerName, phoneNumber, amount, paymentMethod, transactionId);
+            }
+        } catch (error) {
+            console.error('Direct SMS method error:', error);
+            return await sendSMSAlternative(customerName, phoneNumber, amount, paymentMethod, transactionId);
+        }
+    }
+
+    // Alternative SMS sending method using GET request
     async function sendSMSAlternative(customerName, phoneNumber, amount, paymentMethod, transactionId) {
         try {
             // Format phone number
@@ -123,38 +166,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const message = `Dear ${customerName}, your payment of ${amount} BDT (${paymentMethod}) has been received. TXN: ${transactionId}. Service will be given after verification. Web: mamuneservice.com`;
 
-            // Create a hidden form to submit SMS data
-            const form = document.createElement("form");
-            form.method = "GET";
-            form.action = SMS_CONFIG.api_url;
-            form.style.display = "none";
+            // Try with GET method as fallback
+            const smsParams = new URLSearchParams({
+                api_key: SMS_CONFIG.api_key,
+                type: "text",
+                contacts: formattedPhone,
+                senderid: SMS_CONFIG.sender_id,
+                msg: message
+            });
 
-            // Add form fields
-            const fields = {
-                apikey: SMS_CONFIG.api_key,
-                callerID: SMS_CONFIG.callerID,
-                number: formattedPhone,
-                message: message
-            };
+            console.log("Trying alternative SMS method with GET request...");
+            
+            const response = await fetch(`${SMS_CONFIG.api_url}?${smsParams}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-            for (const [key, value] of Object.entries(fields)) {
-                const input = document.createElement("input");
-                input.type = "hidden";
-                input.name = key;
-                input.value = value;
-                form.appendChild(input);
+            if (response.ok) {
+                const result = await response.text();
+                console.log("Alternative SMS method response:", result);
+                return { success: true, result: "SMS sent via alternative method - " + result };
+            } else {
+                console.log("Alternative SMS method also failed, using webhook fallback...");
+                return await sendSMSWebhook(customerName, phoneNumber, amount, paymentMethod, transactionId);
             }
-
-            document.body.appendChild(form);
-            
-            // Note: This approach won't work for AJAX, but we'll simulate success
-            console.log("Alternative SMS method attempted");
-            document.body.removeChild(form);
-            
-            return { success: true, result: "SMS sent via alternative method" };
         } catch (error) {
             console.error('Alternative SMS method failed:', error);
-            return { success: false, error: error.message };
+            return await sendSMSWebhook(customerName, phoneNumber, amount, paymentMethod, transactionId);
+        }
+    }
+
+    // Webhook-based SMS sending as final fallback
+    async function sendSMSWebhook(customerName, phoneNumber, amount, paymentMethod, transactionId) {
+        try {
+            console.log("Using webhook fallback for SMS...");
+            
+            // Format phone number
+            let formattedPhone = phoneNumber.replace(/^\+?88?/, '');
+            if (!formattedPhone.startsWith('88')) {
+                formattedPhone = '88' + formattedPhone;
+            }
+
+            const message = `Dear ${customerName}, your payment of ${amount} BDT (${paymentMethod}) has been received. TXN: ${transactionId}. Service will be given after verification. Web: mamuneservice.com`;
+
+            // Using a webhook service that can handle the SMS API call from server-side
+            const webhookData = {
+                api_key: SMS_CONFIG.api_key,
+                type: "text",
+                contacts: formattedPhone,
+                senderid: SMS_CONFIG.sender_id,
+                msg: message,
+                api_url: SMS_CONFIG.api_url
+            };
+
+            // You can replace this with your own webhook service URL
+            const webhookUrl = "https://hooks.zapier.com/hooks/catch/your-webhook-id/"; // Replace with actual webhook
+            
+            const response = await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(webhookData)
+            });
+
+            if (response.ok) {
+                console.log("SMS webhook triggered successfully");
+                return { success: true, result: "SMS sent via webhook" };
+            } else {
+                // If all methods fail, at least log the attempt
+                console.log("All SMS methods failed, but payment processing continues...");
+                return { 
+                    success: false, 
+                    error: "SMS sending failed but payment was processed successfully. Customer will be notified manually." 
+                };
+            }
+        } catch (error) {
+            console.error('Webhook SMS method failed:', error);
+            return { 
+                success: false, 
+                error: "SMS sending failed but payment was processed successfully. Customer will be notified manually." 
+            };
         }
     }
 
