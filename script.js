@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // SMS Configuration
     const SMS_CONFIG = {
         api_key: "c628f3e6ea38ae7892cebc1a4f09647a719964b1",
-        callerID: "Mamun eSvc",
+        callerID: "Mamun%20eSvc",
         api_url: "https://bulksmsdhaka.com/api/sendtext"
     };
 
